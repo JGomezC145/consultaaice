@@ -2,6 +2,38 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
 } */
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-color: rgb(230, 230, 230);
+        --text-color: rgb(34, 34, 34);
+        --mainh1-color: rgb(55, 57, 59);
+        --hr-color: rgb(53, 52, 52);
+        --button-box-shadow: rgba(0,0,0,0.93);
+        --button-focus: red;
+        --button-text: rgb(212, 212, 212);
+        --bgbtn-color: rgb(88, 70, 70);
+        --button-border: rgb(5, 4, 4);
+        --redd: rgb(243, 0, 0);
+        --result-money: ;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: rgb(53, 52, 52);
+        --text-color: rgb(214, 214, 214);
+        --mainh1-color: rgb(197, 212, 228);
+        --hr-color: rgb(231, 205, 205);
+        --button-box-shadow: rgba(22, 106, 216, 0.93);
+        --button-focus: #743d3d;
+        --button-text: rgb(46, 32, 32);
+        --bgbtn-color: rgb(235, 112, 214);
+        --button-border: rgb(67, 196, 16);
+        --redd: rgb(233, 168, 29);
+        --result-money: rgb(247, 118, 182);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,15 +44,17 @@
     width: 100vw;
     height: 100vh;
     text-align: center;
-    background: rgb(12,0,213);
-    background: linear-gradient(336deg, rgba(12,0,213,1) 0%, rgba(176,189,233,1) 100%);
+    /* background: rgb(12,0,213); */
+    /* background: linear-gradient(336deg, rgba(12,0,213,1) 0%, rgba(176,189,233,1) 100%); */
+    background: var(--bg-color);
+    color: var(--text-color);
 }
 .main h1 {
     font-family: 'Quicksand', sans-serif;
     font-size: 3em;
     font-weight: 800;
     margin-bottom: 8px;
-    color: aliceblue;
+    color: var(--mainh1-color);
 }
 .main h2 {
     font-family: 'Quicksand', sans-serif;
@@ -37,27 +71,32 @@
 }
 .button {
     margin-top:30px;
+    background-color: var(--bgbtn-color);
+    color: var(--button-text);
     padding: 10px;
-    border: 2px solid #000;
+    border: 2px solid var(--button-border);
     border-radius: 50px;
-    box-shadow: 9px 12px 44px 3px rgba(0,0,0,0.93);
+    box-shadow: 9px 12px 44px 3px var(--button-box-shadow);
 }
 .button:focus {
-    color: red;
+    color: var(--button-focus);
 }
 #money {
     font-family: 'Tomorrow', sans-serif;
-    color: honeydew;
+    
 }
 #name {
     font-family: 'Saira Condensed', sans-serif;
 }
 .red {
-    color: rgb(183, 204, 66);
+    color: var(--redd);
+}
+.redmoney {
+    color: red;
 }
 hr {
-    color: #fff;
-    background: #fff;
+    color: var(--hr-color);
+    background: var(--hr-color);
 }
 .invisible {
     display: none;
