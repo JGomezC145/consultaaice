@@ -7,9 +7,11 @@
     :root {
         --bg-color: rgb(230, 230, 230);
         --text-color: rgb(34, 34, 34);
+        --text-color-grey: rgb(78, 78, 78);
         --mainh1-color: rgb(55, 57, 59);
         --hr-color: rgb(53, 52, 52);
         --button-box-shadow: rgba(0,0,0,0.93);
+        --toggler-bg-color: rgb(88, 88, 88);
         --button-focus: red;
         --button-text: rgb(212, 212, 212);
         --bgbtn-color: rgb(88, 70, 70);
@@ -20,11 +22,13 @@
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-color: rgb(53, 52, 52);
+        --bg-color: rgb(54, 53, 53);
         --text-color: rgb(214, 214, 214);
+        --text-color-grey: rgb(179, 179, 179);
         --mainh1-color: rgb(197, 212, 228);
         --hr-color: rgb(231, 205, 205);
         --button-box-shadow: rgba(22, 106, 216, 0.93);
+        --toggler-bg-color: #fff;
         --button-focus: #743d3d;
         --button-text: rgb(46, 32, 32);
         --bgbtn-color: rgb(235, 112, 214);
@@ -39,7 +43,9 @@
     padding: 0;
     font-family: monospace;
 }
-
+.white {
+    background: white;
+}
 .main {
     width: 100vw;
     height: 100vh;
@@ -64,6 +70,7 @@
 }
 .info {
     width: 100vw;
+    z-index: 0;
     position: absolute;
     top:50%;
     left: 50%;
@@ -76,7 +83,7 @@
     padding: 10px;
     border: 2px solid var(--button-border);
     border-radius: 50px;
-    box-shadow: 9px 12px 44px 3px var(--button-box-shadow);
+    ;
 }
 .button:focus {
     color: var(--button-focus);
@@ -100,4 +107,14 @@ hr {
 }
 .invisible {
     display: none;
+}
+.navbar {
+    box-shadow: 0px 12px 44px 0px #000;
+    z-index: 1; 
+}
+.text {
+    color: var(--text-color);
+}
+.text-gray {
+    color: var(--text-color-grey);
 }

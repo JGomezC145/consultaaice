@@ -43,7 +43,7 @@ searcher.addEventListener('submit', (e) => {
     e.preventDefault()
     var niseI = document.getElementById('niseI').value
     if (niseI.length == 6) {
-        pedir(niseI)
+        pedirN(niseI)
     } else {
         alert('NISE inválido')
     }
@@ -112,10 +112,12 @@ window.onload = function (e){
         } else {
             result.innerHTML = '<h2>Por favor, ingrese su NISE en ajustes</h2>'
             var nisef = prompt('Ingrese su NISE', '123456')
-            if (nisef.length == 6) {
-                setCookie('nise', nisef)
-                pedir()
-            } else {
+            if (nisef) {
+                if (nisef.length == 6) {
+                    setCookie('nise', nisef)
+                    pedir()
+                } else {
+                }
             }
         }
     } else {
@@ -125,6 +127,10 @@ window.onload = function (e){
         butt.blur()
     }
 }
+
+navigator.serviceWorker.register('/code/sw.js').then(function(registration) {
+    console.log('Service worker registered:', registration);
+});
 
 function loaddata() {
     var configNise = document.getElementById('configNise')
