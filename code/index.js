@@ -42,7 +42,7 @@ var searcher = document.getElementById('searcher');
 searcher.addEventListener('submit', (e) => {
     e.preventDefault()
     var niseI = document.getElementById('niseI').value
-    if (niseI.length >= 6 && niseI.length <= 8) {
+    if (niseI.length == 6 || niseI.length == 7) {
         pedirN(niseI)
     } else {
         alert('NISE inválido')
@@ -143,7 +143,7 @@ loaddata()
 function savedata() {
     var configNise = document.getElementById('configNise').value
     var configLimit = document.getElementById('configLimit').value
-    if (configNise.length >= 6 && configNise.length <= 8) {
+    if (configNise.length == 6 || configNise.length == 7) {
         setCookie('nise', configNise)
         setCookie('limit', configLimit)
         alert('Guardado')
