@@ -42,7 +42,7 @@ var searcher = document.getElementById('searcher');
 searcher.addEventListener('submit', (e) => {
     e.preventDefault()
     var niseI = document.getElementById('niseI').value
-    if (niseI.length == 6) {
+    if (niseI.length >= 6 && niseI.length <= 8) {
         pedirN(niseI)
     } else {
         alert('NISE inválido')
