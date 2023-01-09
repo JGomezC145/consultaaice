@@ -143,7 +143,7 @@ loaddata()
 function savedata() {
     var configNise = document.getElementById('configNise').value
     var configLimit = document.getElementById('configLimit').value
-    if (configNise.length == 6) {
+    if (configNise.length >= 6 && configNise.length <= 8) {
         setCookie('nise', configNise)
         setCookie('limit', configLimit)
         alert('Guardado')
