@@ -128,7 +128,7 @@ window.onload = function (e){
     }
 }
 
-navigator.serviceWorker.register('/code/sw.js').then(function(registration) {
+navigator.serviceWorker.register('code/sw.js').then(function(registration) {
     console.log('Service worker registered:', registration);
 });
 

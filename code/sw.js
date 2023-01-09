@@ -4,9 +4,9 @@ self.addEventListener('install', function (event) {
         // Open a cache and store some resources
         caches.open('my-cache').then(function (cache) {
             return cache.addAll([
-                '/index.html',
-                '/style/style.css',
-                '/code/index.js'
+                'index.html',
+                'style/style.css',
+                'code/index.js'
             ]);
         })
     );
