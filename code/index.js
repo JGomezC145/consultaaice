@@ -140,6 +140,7 @@ function loaddata() {
 }
 loaddata()
 
+
 function savedata() {
     var configNise = document.getElementById('configNise').value
     var configLimit = document.getElementById('configLimit').value
