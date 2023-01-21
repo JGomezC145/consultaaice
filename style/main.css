@@ -98,6 +98,19 @@
 .red {
     color: var(--redd);
 }
+#internet {
+    transition: 0.5s;
+}
+.internet.invisibleI {
+    scale: 0;
+    display: none;
+    transition: 0.5s;
+}
+.internet.visibleI {
+    scale: 1;
+    display: block;
+    transition: 0.5s;
+}
 .redmoney {
     color: red;
 }

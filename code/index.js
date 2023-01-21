@@ -6,6 +6,35 @@ Boolean.prototype.toNumber = function () {
 
 var active = true;
 
+const internet = {
+    check: function () {
+        if (navigator.onLine) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    show: {
+        off: function () {
+            document.getElementById('internet').classList = 'internet visibleI';
+        },
+        on: function () {
+            document.getElementById('internet').classList = 'internet invisibleI';
+        },
+        nocon: function () {
+            result.innerHTML = '<h2>No hay conexión a internet, verifica tu conexión.</h2><hr>';
+        }
+    },
+    checkAndShow: function () {
+        if (internet.check()) {
+            internet.show.on();
+        } else {
+            internet.show.off();
+        }
+    }
+}
+
+
 //cookie manager
 function setCookie(cname, cvalue, exdays = 365) {
     var d = new Date();
@@ -106,19 +135,23 @@ function pedir() {
 
 window.onload = function (e){
     if (active) {
-        var nise = getCookie('nise')
-        if (nise != '') {
-            pedir()
-        } else {
-            result.innerHTML = '<h2>Por favor, ingrese su NISE en ajustes</h2>'
-            var nisef = prompt('Ingrese su NISE', '123456')
-            if (nisef) {
-                if (nisef.length >= 6 || nisef.length <= 8) {
-                    setCookie('nise', nisef)
-                    pedir()
-                } else {
+        if(internet.check()){
+            var nise = getCookie('nise')
+            if (nise != '') {
+                pedir()
+            } else {
+                result.innerHTML = '<h2>Por favor, ingrese su NISE en ajustes</h2>'
+                var nisef = prompt('Ingrese su NISE', '123456')
+                if (nisef) {
+                    if (nisef.length >= 6 || nisef.length <= 8) {
+                        setCookie('nise', nisef)
+                        pedir()
+                    } else {
+                    }
                 }
             }
+        } else {
+            internet.show.nocon()
         }
     } else {
         //result.innerHTML = '<h2>Deshabilitado por sistema</h2>'
@@ -127,6 +160,13 @@ window.onload = function (e){
         butt.blur()
     }
 }
+
+window.addEventListener('online',  function(e) {
+    internet.show.on();
+});
+window.addEventListener('offline',  function(e) {
+    internet.show.off();
+});
 
 navigator.serviceWorker.register('code/sw.js').then(function(registration) {
     console.log('Service worker registered:', registration);
