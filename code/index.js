@@ -115,21 +115,29 @@ function reqListener() {
 }
 
 function pedirN(nise) {
-    butt.classList = "button invisible"
-    result.innerHTML = '<h2>Espere un momento...</h2>'
-    var oReq = new XMLHttpRequest();
-    oReq.addEventListener("load", reqListener);
-    oReq.open("GET", "https://apps.grupoice.com/FacturaElectrica/api/FactElecICE/?nise=" + nise);
-    oReq.send();
+    if (internet.check()) {
+        butt.classList = "button invisible"
+        result.innerHTML = '<h2>Espere un momento...</h2>'
+        var oReq = new XMLHttpRequest();
+        oReq.addEventListener("load", reqListener);
+        oReq.open("GET", "https://apps.grupoice.com/FacturaElectrica/api/FactElecICE/?nise=" + nise);
+        oReq.send();
+    } else {
+        internet.show.nocon()
+    }
 }
 
 
 function pedir() {
-    var nise = getCookie('nise')
-    if (nise != '') {
-        pedirN(nise)
+    if (internet.check()){
+        var nise = getCookie('nise')
+        if (nise != '') {
+            pedirN(nise)
+        } else {
+            result.innerHTML = '<h2>Por favor, ingrese su NISE en ajustes</h2>'
+        }
     } else {
-        result.innerHTML = '<h2>Por favor, ingrese su NISE en ajustes</h2>'
+        internet.show.nocon()
     }
 }
 
